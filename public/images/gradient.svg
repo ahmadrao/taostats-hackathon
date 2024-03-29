@@ -1,0 +1,9 @@
+<svg className="w-full z-100"  height="152" viewBox="0 0 1592 152" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect className="w-full" height="152" fill="url(#paint0_linear_5_6578)"/>
+<defs>
+<linearGradient id="paint0_linear_5_6578" x1="796" y1="0" x2="796" y2="152" gradientUnits="userSpaceOnUse">
+<stop stopColor="#121212" stopOpacity="0"/>
+<stop offset="0.975" stopColor="#121212"/>
+</linearGradient>
+</defs>
+</svg>

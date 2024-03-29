@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=TWK+Everett&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgba: 22, 22, 22, 1;
+  --background-start-rgba: 22, 22, 22, 1;
+  --background-end-rgba: 22, 22, 22, 1;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgba: 22, 22, 22, 1;
+    --background-end-rgba: 22, 22, 22, 1;
+  }
+}
+
+body {
+  font-family: 'TWK Everett', sans-serif;
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgba))
+    )
+    rgb(var(--background-start-rgba));
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
