@@ -1,0 +1,134 @@
+{
+  "data": {
+    "accounts": {
+      "nodes": [
+        {
+          "address": "5C59JBL8eYacZPeDA5LYCjTd7BKNHE44hG8hsE9DmkFwefMR",
+          "createdAt": "251511",
+          "updatedAt": "2663000",
+          "balanceToken": "17.44861904",
+          "delegatedPercentage": "25.2550218998611",
+          "balanceTotal": "252551963860515"
+        },
+        {
+          "address": "5FRqwexkxqXLg4frDhGKM6rCw2y32JWojQ6JV6zBgzhnhq7r",
+          "createdAt": "0",
+          "updatedAt": "2663000",
+          "balanceToken": "29.99999565",
+          "delegatedPercentage": "19.0640627549162",
+          "balanceTotal": "190643627548727"
+        },
+        {
+          "address": "5EU92KqB1wwvkHonEzZktPRt7FxkUxPa9vY5kgNtJSCr39hs",
+          "createdAt": "1787248",
+          "updatedAt": "2663000",
+          "balanceToken": "99.9999856",
+          "delegatedPercentage": "17.2500449212139",
+          "balanceTotal": "172501449211995"
+        },
+        {
+          "address": "5FqBL928choLPmeFz5UVAvonBD5k7K2mZSXVC9RkFzLxoy2s",
+          "createdAt": "0",
+          "updatedAt": "2663144",
+          "balanceToken": "15.9168592151599",
+          "delegatedPercentage": "0",
+          "balanceTotal": "159168592151599"
+        },
+        {
+          "address": "5HiveMEoWPmQmBAb8v63bKPcFhgTGCmST1TVZNvPHSTKFLCv",
+          "createdAt": "0",
+          "updatedAt": "2663144",
+          "balanceToken": "67.60",
+          "delegatedPercentage": "15.8151680549712",
+          "balanceTotal": "158151680556472"
+        },
+        {
+          "address": "5C59JBL8eYacZPeDA5LYCjTd7BKNHE44hG8hsE9DmkFwefMR",
+          "createdAt": "251511",
+          "updatedAt": "2663000",
+          "balanceToken": "17.44861904",
+          "delegatedPercentage": "25.2550218998611",
+          "balanceTotal": "252551963860515"
+        },
+        {
+          "address": "5FRqwexkxqXLg4frDhGKM6rCw2y32JWojQ6JV6zBgzhnhq7r",
+          "createdAt": "0",
+          "updatedAt": "2663000",
+          "balanceToken": "29.99999565",
+          "delegatedPercentage": "19.0640627549162",
+          "balanceTotal": "190643627548727"
+        },
+        {
+          "address": "5EU92KqB1wwvkHonEzZktPRt7FxkUxPa9vY5kgNtJSCr39hs",
+          "createdAt": "1787248",
+          "updatedAt": "2663000",
+          "balanceToken": "99.9999856",
+          "delegatedPercentage": "17.2500449212139",
+          "balanceTotal": "172501449211995"
+        },
+        {
+          "address": "5FqBL928choLPmeFz5UVAvonBD5k7K2mZSXVC9RkFzLxoy2s",
+          "createdAt": "0",
+          "updatedAt": "2663144",
+          "balanceToken": "15.9168592151599",
+          "delegatedPercentage": "0",
+          "balanceTotal": "159168592151599"
+        },
+        {
+          "address": "5HiveMEoWPmQmBAb8v63bKPcFhgTGCmST1TVZNvPHSTKFLCv",
+          "createdAt": "0",
+          "updatedAt": "2663151",
+          "balanceToken": "76.39",
+          "delegatedPercentage": "15.8150681549200",
+          "balanceTotal": "158150681556839"
+        },
+        {
+          "address": "5EaBdmkhnzamcWTHBmNyFqB4JJtG4AMg2yYteDMrmFVw1S7o",
+          "createdAt": "0",
+          "updatedAt": "2663000",
+          "balanceToken": "25.9601000",
+          "delegatedPercentage": "86.311220209884",
+          "balanceTotal": "86311479810884"
+        },
+        {
+          "address": "5FZ3kzkS3tC1DfY3f4k6TY9Jd8cPVTAJpxDWEo5sYo6a3pBa",
+          "createdAt": "208851",
+          "updatedAt": "2663000",
+          "balanceToken": "19.99999856",
+          "delegatedPercentage": "78.273816728082",
+          "balanceTotal": "78275816727938"
+        },
+        {
+          "address": "5FP8V4zuA2g2Mn1vaCcftPMp41uSwvNX6VzzTE7gqQ5t1dAS",
+          "createdAt": "0",
+          "updatedAt": "2663000",
+          "balanceToken": "42.0000854",
+          "delegatedPercentage": "65.267485351197",
+          "balanceTotal": "65267905352051"
+        },
+        {
+          "address": "5FsWP1GxpzT11xyFBojKpE75pzp54ESDA6BYbRMPJ2nsCZE5",
+          "createdAt": "1219626",
+          "updatedAt": "2650600",
+          "balanceToken": "58.869581310283",
+          "delegatedPercentage": "0",
+          "balanceTotal": "58869581310283"
+        },
+        {
+          "address": "5Gp6mLi4sCkyKicB7hJbkCZ53oJvWqdgQ7AqBykmWKTx7Ry1",
+          "createdAt": "0",
+          "updatedAt": "2663000",
+          "balanceToken": "99.6",
+          "delegatedPercentage": "58.552197194707",
+          "balanceTotal": "58552197195703"
+        }
+      ],
+      "pageInfo": {
+        "endCursor": "WyJiYWxhbmNlX3RvdGFsX2Rlc2MiLFsxNTgxNTE2ODA1NTY0NzIsIjVIaXZlTUVvV1BtUW1CQWI4djYzYktQY0ZoZ1RHQ21TVDFUVlpOdlBIU1RLRkxDdiJdXQ==",
+        "hasNextPage": false,
+        "hasPreviousPage": false
+      },
+      "totalCount": 5
+    }
+  }
+}

@@ -4,5 +4,6 @@ export interface Subnet {
     name: string;
     owner: string;
     emission: number;
+    description: string;
   }
   

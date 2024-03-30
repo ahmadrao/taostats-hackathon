@@ -1,88 +1,116 @@
-import React, { useEffect, useMemo, useRef, useState } from 'react';
+import React, { useEffect, useMemo, useRef, useState } from "react";
 import {
   ColumnDef,
   getCoreRowModel,
   getSortedRowModel,
   useReactTable,
   SortingState,
-} from '@tanstack/react-table';
-import { useVirtualizer } from '@tanstack/react-virtual'
-import Tooltip from '@/components/Tooltip';
+} from "@tanstack/react-table";
 
-import TableHead from './TableHead';
-import TableRow from './TableRow';
-import blockData from '@/utils/blocks.json';
-import { Block } from '@/types/LandingPage/Blocks';
-import { truncateHash } from '@/utils/helpers';
-import TextLinkWithArrow from '@/components/TextLinkWithArrow';
-import CellWithCopy from './CellWithCopy';
-import TimeAgo from './TimeAgo';
-import {infiniteScrollTableGradient} from '@/utils/svgs'
+import Tooltip from "@/components/Tooltip";
 
+import TableHead from "./TableHead";
+import TableRow from "./TableRow";
+import blockData from "@/utils/data/blocks.json";
+import { Block } from "@/types/LandingPage/Blocks";
+import { truncateHash } from "@/utils/helpers";
+import TextLinkWithArrow from "@/components/TextLinkWithArrow";
+import CellWithCopy from "./CellWithCopy";
+import TimeAgo from "./TimeAgo";
+import { infiniteScrollTableGradient } from "@/utils/svgs";
 
-const fetchSize = 50; 
+const fetchSize = 50;
 
 const TableComponent = () => {
   const [data, setData] = useState<Block[]>([]);
   const [pageIndex, setPageIndex] = useState(0);
   const tableContainerRef = useRef<HTMLDivElement>(null);
   const [sorting, setSorting] = useState<SortingState>([
-    {id: "height", desc: true}
+    { id: "height", desc: true },
   ]);
+  // const [screenWidth, setScreenWidth] = useState<number>(0);
 
+  // useEffect(() => {
+  //   function handleResize() {
+  //     setScreenWidth(window.innerWidth);
+  //   }
+  //   setScreenWidth(window.innerWidth);
+  //   window.addEventListener("resize", handleResize);
 
-  const columns = useMemo<ColumnDef<Block>[]>(() => [
-    {
-      accessorKey: 'height',
-      header: () => <span className="text-table-teal">Height</span>,
-    },
-    {
-      accessorKey: 'specVersion',
-      header: 'Spec Version',
-    },
-    {
-      accessorKey: 'eventCount',
-      header: 'Events',
-    },
-    {
-      accessorKey: 'hash',
-      header: 'Hash',
-      cell:(info)=>{
-        const valueBeforeChange = info.cell.getValue();
-        let cellValue = truncateHash(info.cell.getValue() as string,34);  
+  //   handleResize();
 
-      return  <div className="flex w-fit gap-[22px]">
-           <Tooltip tooltipText={valueBeforeChange as string}>
-            <span className='w-[320px]'>{cellValue}</span>
-          </Tooltip>
-       <CellWithCopy value={truncateHash(info.cell.getValue() as string, 34)} />
-      </div>
-      }
-    },
-    {
-      accessorKey: 'extrinsicCount',
-      header: 'Extrinsics',
-    },
+  //   return () => window.removeEventListener("resize", handleResize);
+  // }, []);
 
-    {
-      accessorKey: 'timestamp',
-      header: 'Time',
-      cell: (info) => <TimeAgo dateString={info.cell.getValue() as string} />,
-    },
-    {
-      accessorKey: 'id',
-      header: '',
-      cell:(info)=>{
-   
-        let id = info.cell.getValue()  
+  const columns = useMemo<ColumnDef<Block>[]>(
+    () => [
+      {
+        accessorKey: "height",
+        header: () => <span className="text-teal-action">Height</span>,
+      },
+      {
+        accessorKey: "specVersion",
+        header: "Spec Version",
+      },
+      {
+        accessorKey: "eventCount",
+        header: "Events",
+      },
+      {
+        accessorKey: "hash",
+        header: "Hash",
+        cell: (info) => {
+          const valueBeforeChange = info.cell.getValue();
 
-      return  <TextLinkWithArrow text="View Block" className="m-0" link={`/${id}`} />
-      }
-    },
+          let cellValue;
 
-  ], []);
-  
-  // const data = useMemo(() => blockData.data.blocks.nodes.slice(0,7), []);
+          if (window.innerWidth >= 1280) {
+            cellValue = truncateHash(info.cell.getValue() as string, 34);
+          } else if (window.innerWidth >= 1024) {
+            cellValue = truncateHash(info.cell.getValue() as string, 24);
+          } else if (window.innerWidth <= 680) {
+            cellValue = truncateHash(info.cell.getValue() as string, 16);
+          }
+
+          return (
+            <div className="flex w-fit gap-[22px]">
+              <Tooltip tooltipText={valueBeforeChange as string}>
+                <span className="">{cellValue}</span>
+              </Tooltip>
+              <CellWithCopy value={valueBeforeChange as string} />
+            </div>
+          );
+        },
+      },
+      {
+        accessorKey: "extrinsicCount",
+        header: "Extrinsics",
+      },
+
+      {
+        accessorKey: "timestamp",
+        header: "Time",
+        cell: (info) => <TimeAgo dateString={info.cell.getValue() as string} />,
+      },
+      {
+        accessorKey: "id",
+        header: "",
+        cell: (info) => {
+          let id = info.cell.getValue();
+
+          return (
+            <TextLinkWithArrow
+              text="View Block"
+              className="m-0"
+              link={`/${id}`}
+            />
+          );
+        },
+      },
+    ],
+    []
+  );
+
   const blocks: Block[] = useMemo(() => blockData.data.blocks.nodes, []);
   const table = useReactTable({
     data,
@@ -95,18 +123,11 @@ const TableComponent = () => {
     onSortingChange: setSorting,
     getCoreRowModel: getCoreRowModel(),
     getSortedRowModel: getSortedRowModel(),
-   
-
   });
-
- 
-
 
   useEffect(() => {
     setData(blocks.slice(0, fetchSize));
   }, [blocks]);
-
-
 
   const fetchMoreData = () => {
     const nextPageIndex = pageIndex + 1;
@@ -117,19 +138,11 @@ const TableComponent = () => {
     }
   };
 
-
-  const rowVirtualizer = useVirtualizer({
-    count: data.length,
-    getScrollElement: () => tableContainerRef.current,
-    estimateSize: () => 50, // Adjust based on your row height
-    overscan: 5,
-  });
-
   // Handle scroll to fetch more data
   useEffect(() => {
     const handleScroll = () => {
       const scrollElement = tableContainerRef.current;
-      console.log('fetchMoreData',scrollElement)
+
       if (!scrollElement) return;
       const { scrollTop, clientHeight, scrollHeight } = scrollElement;
       const isBottom = scrollHeight - scrollTop <= clientHeight * 1.5;
@@ -139,32 +152,29 @@ const TableComponent = () => {
     };
 
     const scrollElement = tableContainerRef.current;
-    scrollElement?.addEventListener('scroll', handleScroll);
+    scrollElement?.addEventListener("scroll", handleScroll);
 
-    return () => scrollElement?.removeEventListener('scroll', handleScroll);
+    return () => scrollElement?.removeEventListener("scroll", handleScroll);
   }, [data.length]);
 
   return (
     <>
       {infiniteScrollTableGradient}
-    <div   ref={tableContainerRef} className="mt-[38px] relative max-h-[371px] overflow-auto font-medium ">
-    
-      <table className="w-full ">
-        <TableHead 
-         headerGroups={table.getHeaderGroups()} />
-        <tbody className='relative' >
-
-          {table.getRowModel().rows.map(row => (
-            <TableRow key={row.id} row={row} />
+      <div
+        ref={tableContainerRef}
+        className={`customScrollbar mt-6 md:mt-[38px] relative max-h-[371px] overflow-auto min-w-[1000px] sm:min-w-[1100px] font-medium`}
+      >
+        <table className="w-full ">
+          <TableHead headerGroups={table.getHeaderGroups()} />
+          <tbody className="relative">
+            {table.getRowModel().rows.map((row) => (
+              <TableRow key={row.id} row={row} />
             ))}
-        </tbody>
-      </table>
-    
-    </div>
+          </tbody>
+        </table>
+      </div>
     </>
   );
 };
 
 export default TableComponent;
-
-

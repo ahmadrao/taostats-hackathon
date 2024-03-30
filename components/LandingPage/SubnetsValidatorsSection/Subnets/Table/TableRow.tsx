@@ -1,26 +1,23 @@
-import React from 'react';
-import { Row, flexRender } from '@tanstack/react-table';
-import { Subnet } from '@/types/LandingPage/Subnets';
-
+import React from "react";
+import { Row, flexRender } from "@tanstack/react-table";
+import { Subnet } from "@/types/LandingPage/Subnets";
 
 type TableRowProps = {
   row: Row<Subnet>;
 };
 
 const TableRow: React.FC<TableRowProps> = ({ row }) => {
-
-
   return (
-
-    <tr  >
-
-      {row.getVisibleCells().map(cell => {
-  
-
+    <tr className="hover:bg-[#d9d9d90d]">
+      {row.getVisibleCells().map((cell) => {
         return (
-          <td key={cell.id} className={`${ cell.column.id === 'height' ? 'text-table-zeal' : 'text-dark-white'} text-base font-bold py-[14px] px-[10px]  border-y-[1px] border-[#333]`}>
-   
-   {flexRender(cell.column.columnDef.cell, cell.getContext())}
+          <td
+            key={cell.id}
+            className={`${
+              cell.column.id === "owner" ? "text-dark-gray" : "text-dark-white"
+            } text-sm sm:text-base  font-medium py-[14px] px-[10px]  border-y-[1px] border-[#333]`}
+          >
+            {flexRender(cell.column.columnDef.cell, cell.getContext())}
           </td>
         );
       })}

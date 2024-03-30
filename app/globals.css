@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=TWK+Everett&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=TWK+Everett&display=swap");
 
 @tailwind base;
 @tailwind components;
@@ -9,7 +9,19 @@
   --background-start-rgba: 22, 22, 22, 1;
   --background-end-rgba: 22, 22, 22, 1;
 }
+@font-face {
+  font-family: "TWK Everett";
+  src: url("/fonts/TWKEverett-Medium.otf") format("opentype");
+  font-weight: 500;
+  font-style: normal;
+}
 
+@font-face {
+  font-family: "TWK Everett";
+  src: url("/fonts/TWKEverett-Regular.otf") format("opentype");
+  font-weight: normal; /* equivalent to font-weight: 400; */
+  font-style: normal;
+}
 @media (prefers-color-scheme: dark) {
   :root {
     --foreground-rgb: 255, 255, 255;
@@ -19,7 +31,7 @@
 }
 
 body {
-  font-family: 'TWK Everett', sans-serif;
+  font-family: "TWK Everett", sans-serif;
   color: rgb(var(--foreground-rgb));
   background: linear-gradient(
       to bottom,
@@ -33,4 +45,49 @@ body {
   .text-balance {
     text-wrap: balance;
   }
+}
+
+body::-webkit-scrollbar-track {
+  /* background: #a1a1a1; */
+  background: transparent;
+}
+
+/* Targets the scrollbar handle */
+body::-webkit-scrollbar-thumb {
+  background: #636363;
+  border-radius: 8px;
+}
+
+/* targets the scrollbar itself */
+body::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* For Firefox */
+body {
+  scrollbar-color: #636363 transparent; /* thumb and track color */
+  scrollbar-width: thin;
+  overflow-x: hidden;
+}
+
+.customScrollbar::-webkit-scrollbar-track {
+  /* background: #a1a1a1; */
+  background: transparent;
+}
+
+/* Targets the scrollbar handle */
+.customScrollbar::-webkit-scrollbar-thumb {
+  background: #636363;
+  border-radius: 8px;
+}
+
+/* targets the scrollbar itself */
+.customScrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+
+/* For Firefox */
+.customScrollbar {
+  scrollbar-color: #636363 transparent; /* thumb and track color */
+  scrollbar-width: thin;
 }

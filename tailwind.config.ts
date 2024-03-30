@@ -1,5 +1,6 @@
 import type { Config } from "tailwindcss";
-const { violet, blackA } = require('@radix-ui/colors');
+const defaultTheme = require("tailwindcss/defaultTheme");
+const { violet, blackA,mauve } = require('@radix-ui/colors');
 
 const config: Config = {
   content: [
@@ -12,6 +13,17 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      screens: {
+        x330: "330px",
+        x350: "350px",
+        x365: "365px",
+        sx: "380px",
+        xs: "460px",
+        sm: "640px",
+    
+        ...defaultTheme.screens,
+      },
+  
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":
@@ -22,11 +34,13 @@ const config: Config = {
         
       },
       colors: {
-        "table-teal": "#00DBBC",
+        "teal-action": "#00DBBC",
         "dark-gray": "#636363",
         "dark-white": "#CACACA",
         ...violet,
         ...blackA,
+        ...mauve,
+      
       },
    
       keyframes: {

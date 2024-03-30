@@ -1,5 +1,5 @@
-import React from 'react';
-import { useTimeAgo } from '@/utils/useTimeAgo'; // Adjust import path as necessary
+import React from "react";
+import { useTimeAgo } from "@/hooks/useTimeAgo"; // Adjust import path as necessary
 
 interface TimeAgoProps {
   dateString: string;
